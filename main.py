@@ -62,7 +62,7 @@ class MainPage(BaseHandler):
                 ]
             },
         ]
-        self.render_response("index.html")
+        self.render_response("index.html", papers=papers)
 
 
 class JobsPage(BaseHandler):
