@@ -54,7 +54,7 @@ class MainPage(BaseHandler):
                 'vol' : 119,
                 'issue' : 18,
                 'pages' : '3788-98',
-                'pmid' : 17637676,
+                'pmid' : 16940353,
                 'fulltext_url' : 'http://jcs.biologists.org/cgi/content/abstract/119/18/3788',
                 'postscript' : '(Research highlight in Nature Biotechnology, 9/07)',
                 'exports' : [
