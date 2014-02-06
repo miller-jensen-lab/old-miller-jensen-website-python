@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import logging
 from config import config
 import webapp2
@@ -38,9 +41,10 @@ class MainPage(BaseHandler):
                 'vol': 29,
                 'issue': 10,
                 'journal': "Trends in Biotechnology",
-                'pmid': 21700350‎,
+                'pmid': 21700350,
                 'fulltext_url': 'http://linkinghub.elsevier.com/retrieve/pii/S0167-7799(11)00093-X',
             },
+
             {
                 'title': u'Genetic selection for context-dependent stochastic phenotypes: Sp1 and TATA mutations increase phenotypic noise in HIV-1 gene expression.',
                 'authors': 'Miller-Jensen K., Skupsky R., Shah P.S., Arkin A.P., Schaffer D.V.',
