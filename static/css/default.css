@@ -160,6 +160,7 @@ header {
 div.paper{
     overflow:hidden;
     margin-bottom: 24px;
+    font-size: smaller;
 }
     div.paper img{
         float:left;

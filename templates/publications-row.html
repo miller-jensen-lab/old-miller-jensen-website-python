@@ -5,8 +5,11 @@
   {% if loop.index0 % 2 == 0 %}
   <div class="row">
   {% endif %}
-    <div class="paper col-md-6">                  
-      <img class="{{ loop.cycle('', 'box-rotate-07-neg', 'box-rotate-07') }} small-shadow hidden-xs" height="125" width="97" src="/static/img/{{paper.pmid}}.png">
+    <div class="paper col-md-6"> 
+      <a href="{{paper.fulltext_url}}">
+        <img class="{{ loop.cycle('', 'box-rotate-07-neg', 'box-rotate-07') }} small-shadow hidden-xs" height="125" width="97" src="/static/img/{{paper.pmid}}.png">
+      </a>
+                
       <p>
       <a href="{{paper.fulltext_url}}">{{paper.title}}</a>.
       {{paper.authors}} <b>{{paper.journal}}</b> {{paper.vol}}{% if paper.issue %}&nbsp;({{paper.issue}}){% endif %}{% if paper.pages %} {{paper.pages}}{% endif %},
