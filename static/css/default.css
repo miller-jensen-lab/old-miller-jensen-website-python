@@ -1,3 +1,9 @@
+
+/*
+******************************
+    General
+******************************
+*/
 body{
     background-color:#fff;
     font-family: 'PT Serif',Georgia,serif;
@@ -17,8 +23,18 @@ h1,h2,h3,h4,h5{
     font-family: 'PT Sans Narrow', sans-serif;
 }
 h3{
-  margin: 12px 0 12px 0;
+  margin: 24px 0 12px 0;
 }
+li.last{
+  margin-bottom: 10px;
+}
+
+
+/*
+******************************
+    Header
+******************************
+*/
 #header-row{
     padding:35px 0 0px 0;
     border-top: 3px solid #eee;
