@@ -9,8 +9,15 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-6">
         <ul class="nav nav-tabs">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">People</a></li>
+          <li {% if tab == 'index' %}class="active"{% endif %}>
+            <a href="/">Home</a>
+          </li>
+          <li {% if tab == 'people' %}class="active"{% endif %}>
+            <a href="/people/">People</a>
+          </li>
+          <li {% if tab == 'publications' %}class="active"{% endif %}>
+            <a href="/publications/">Publications</a>
+          </li>
         </ul>
       </div>
     </div>

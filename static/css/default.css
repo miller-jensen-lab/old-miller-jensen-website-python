@@ -172,8 +172,8 @@ div.media{
   font-size: 16px;
   margin-bottom: 24px;
 }
-div.media a.pull-left{
-  padding-right: 12px;
+div.media-body{
+  padding-left: 12px;
 }
 h4.media-heading{
   font-family: 'PT Serif',Georgia,serif;
@@ -184,6 +184,19 @@ h4.media-heading{
   margin-bottom: 24px;
 }
 
+/*
+******************************
+    People
+******************************
+*/
+.first-people-row{
+  margin-top: 72px;
+}
+span.position{
+  color:#777;
+  display:block;
+  font-size: smaller;
+}
 
 /*
 ******************************

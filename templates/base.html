@@ -23,11 +23,8 @@
     {% include "header-row.html" %}
     
     <div class="container">
-      {% include "picture-row.html" %}
-      {% include "abstract-row.html" %}
-      {% include "about-row.html" %}
-      {% include "publications-row.html" %}
-      {% include "contact-row.html" %}
+      {% block body %}
+      {% endblock %}
 
     </div>
 

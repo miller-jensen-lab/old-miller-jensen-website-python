@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+  {% for group in people|sort(attribute='last_name')|batch(2) %}
+    <div class="row people-row {% if loop.first %}first-people-row{% endif %}">
+      {% for person in group %}
+        <div class="col-md-6">
+          <div class="media">
+
+            <img class="pull-left {{ ['', 'box-rotate-07-neg', 'box-rotate-07']|random }} small-shadow hidden-xs" src="/static/img/people/{{person.photo}}">
+            <div class="media-body">
+              <h4 class="media-heading">
+                {{person.name}}
+                <span class="position">{{person.position}}</span>
+              </h4>
+              {{person.description}}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+{% endblock %}
