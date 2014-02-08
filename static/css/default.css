@@ -68,6 +68,7 @@ header {
     header h2{
         font-weight: 100;
         color:#B3C0DD;
+        margin-bottom: 24px;
 
     }
     header h1 {
@@ -275,4 +276,15 @@ span.position{
     -moz-box-shadow: 5px 5px 10px #bbb;
     box-shadow: 5px 5px 10px #bbb;
 }
-    
+
+/*
+******************************
+    Responsive changes
+******************************
+*/
+/* Tablets and above */
+@media (min-width: 768px) {
+  header h2{
+    margin-bottom: 0px;
+  }
+}
