@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-papers = [
+publications = [
     {
         'title': u'Systems biology of virus-host signaling network interactions',
         'authors': 'Xue Q., Miller-Jensen K.',
         'year': 2012,
         'vol': 45,
         'issue': 4,
-        'journal': "Trends in Biotechnology",
+        'journal': "BMB Reports",
         'pmid': 22531130,
         'fulltext_url': 'http://www.bmbreports.org/fulltext/bmbreports/view.php?vol=45&page=213',
     },

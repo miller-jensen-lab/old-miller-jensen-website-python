@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 
+
+{% block title %}
+  People in the Miller-Jensen Laboratory at Yale
+{% endblock %}
+
+
 {% block body %}
   {% for group in people|sort(attribute='last_name')|batch(2) %}
-    <div class="row people-row {% if loop.first %}first-people-row{% endif %}">
+    <div class="row people-row {% if loop.first %}first-row{% endif %}">
       {% for person in group %}
         <div class="col-md-6">
           <div class="media">

@@ -4,6 +4,7 @@ body{
     font-size:18px;
     color:rgb(68, 68, 68);
     -webkit-font-smoothing: antialiased;
+    padding-bottom: 72px;
 }
 b{
     font-weight: bold;
@@ -14,6 +15,9 @@ h1,h2,h3,h4,h5{
     font-size:32px;
     margin-bottom:36px;
     font-family: 'PT Sans Narrow', sans-serif;
+}
+h3{
+  margin: 12px 0 12px 0;
 }
 #header-row{
     padding:35px 0 0px 0;
@@ -189,13 +193,14 @@ h4.media-heading{
     People
 ******************************
 */
-.first-people-row{
+.first-row{
   margin-top: 72px;
 }
 span.position{
   color:#777;
   display:block;
   font-size: smaller;
+  padding-bottom: 6px;
 }
 
 /*

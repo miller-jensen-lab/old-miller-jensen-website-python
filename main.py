@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import webapp2
-from models import papers, people
+from models import publications, people
 from webapp2_extras import jinja2
 
 
@@ -22,7 +22,6 @@ class IndexPage(BaseHandler):
     def get(self):
         self.render_response(
             "index.html",
-            papers=papers,
             tab='index'
         )
 
@@ -35,7 +34,17 @@ class PeoplePage(BaseHandler):
             tab='people'
         )
 
+
+class PublicationsPage(BaseHandler):
+    def get(self):
+        self.render_response(
+            "publications.html",
+            publications=publications,
+            tab='publications'
+        )
+
 application = webapp2.WSGIApplication([
     ('/', IndexPage),
-    ('/people/', PeoplePage)
+    ('/people/', PeoplePage),
+    ('/publications/', PublicationsPage)
 ], debug=True)
