@@ -283,7 +283,7 @@ span.position{
 ******************************
 */
 /* Tablets and above */
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   header h2{
     margin-bottom: 0px;
   }
