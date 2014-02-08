@@ -46,7 +46,7 @@ class MainPage(BaseHandler):
             },
 
             {
-                'title': u'Genetic selection for context-dependent stochastic phenotypes: Sp1 and TATA mutations increase phenotypic noise in HIV-1 gene expression.',
+                'title': u'Genetic selection for context-dependent stochastic phenotypes: Sp1 and TATA mutations increase phenotypic noise in HIV-1 gene expression',
                 'authors': 'Miller-Jensen K., Skupsky R., Shah P.S., Arkin A.P., Schaffer D.V.',
                 'year': 2013,
                 'vol': 9,
@@ -56,7 +56,7 @@ class MainPage(BaseHandler):
                 'fulltext_url': 'http://dx.plos.org/10.1371/journal.pcbi.1003135',
             },
             {
-                'title': u'Chromatin accessibility at the HIV LTR promoter sets a threshold for NF-κB mediated viral gene expression.',
+                'title': u'Chromatin accessibility at the HIV LTR promoter sets a threshold for NF-κB mediated viral gene expression',
                 'authors': 'Miller-Jensen K., Dey S.S., Pham N., Foley J.E., Arkin A.P., Schaffer D.V.',
                 'year': 2012,
                 'vol': 4,
