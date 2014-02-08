@@ -16,7 +16,7 @@ h1,h2,h3,h4,h5{
     font-family: 'PT Sans Narrow', sans-serif;
 }
 #header-row{
-    padding:35px 0 24px 0;
+    padding:35px 0 0px 0;
     border-top: 3px solid #eee;
     background-color:#fff;
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#364F93), to(#003880));
@@ -33,7 +33,18 @@ img{
     border: 1px solid #bbb;
     padding:8px;
 }
-
+#tab-holder{
+  background-color: #533;
+  height:100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+.nav li{
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+.nav-tabs>li>a{
+  text-shadow: none;
+}
 header {
     text-align:center;
 }
