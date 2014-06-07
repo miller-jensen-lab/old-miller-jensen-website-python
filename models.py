@@ -81,6 +81,17 @@ publications = [
             ('kyle', 'test')
         ]
     },
+    {
+        'title' : 'High-throughput secretomic analysis of single cells to assess functional cellular heterogeneity',
+        'authors' : 'Lu Y1, Chen JJ, Mu L, Xue Q, Wu Y, Wu PH, Li J, Vortmeyer AO, Miller-Jensen K, Wirtz D, Fan R.',
+        'year' : 2014,
+        'journal' : "Anal Chem",
+        'vol' : 85,
+        'issue' : 4,
+        'pages' : '2548-56',
+        'pmid' : 23339603,
+        'fulltext_url' : 'http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3589817/',
+    },
 ]
 
 
@@ -125,7 +136,7 @@ people = [
         'name': u'Victor Wong',
         'photo': u'Victor_photo-small.jpg',
         'position': u'Graduate Student (Molecular, Cellular, and Developmental Biology)',
-        'description': u'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        'description': u'Victor is studying how cell-to-cell heterogeneity in NF-kB dynamics and chromatin environment combine to regulate transcriptional activation of latent HIV. He is using a combination of live-cell imaging and single molecular fluorescence in situ hybridization (smFISH) to observe latent HIV activation in single cells. His interests include molecular biology, microscopy, biological noise and signal transduction. Victor received his Bachelor’s degree in Biology from the University of Pennsylvania.',
     },
     {
         'name': u'Markus Eisele',
