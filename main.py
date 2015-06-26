@@ -43,8 +43,14 @@ class PublicationsPage(BaseHandler):
             tab='publications'
         )
 
+class NewsPage(BaseHandler):
+    def get(self):
+        self.render_response("news.html", tab="news")
+
+
 application = webapp2.WSGIApplication([
     ('/', IndexPage),
     ('/people/', PeoplePage),
-    ('/publications/', PublicationsPage)
+    ('/publications/', PublicationsPage),
+    ('/news/', NewsPage),
 ], debug=True)
