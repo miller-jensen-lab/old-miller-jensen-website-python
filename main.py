@@ -70,7 +70,6 @@ class NewsPage(BaseHandler):
         )
 
 class AdminPage(BaseHandler):
-    @admin_required
     def get(self):
         self.render_response(
             "admin/admin.html",
