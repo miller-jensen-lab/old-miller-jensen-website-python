@@ -9,14 +9,22 @@ from models.people import people
 from models.newsitem import NewsItem, NewsItemForm
 from google.appengine.api import users
 import logging
-logging.root.setLevel(logging.DEBUG)
+import markdown2
 
 class BaseHandler(webapp2.RequestHandler):
 
     @webapp2.cached_property
     def jinja2(self):
         # Returns a Jinja2 renderer cached in the app registry.
-        return jinja2.get_jinja2(app=self.app)
+        j2 = jinja2.get_jinja2(app=self.app)
+        def md(*args, **kwargs):
+            if args[0]:
+                return markdown2.markdown(*args, **kwargs)
+            return ''
+
+        j2.environment.filters['markdown'] = md
+
+        return j2
 
     def render_response(self, _template, **context):
         context = context or {}
@@ -40,7 +48,8 @@ class IndexPage(BaseHandler):
     def get(self):
         self.render_response(
             "index.html",
-            tab='index'
+            tab='index',
+            news_items=NewsItem.get_latest(limit=5)
         )
 
 
@@ -254,7 +263,7 @@ application = webapp2.WSGIApplication([
     webapp2.Route(r'/', handler=IndexPage),
     webapp2.Route(r'/people/', handler=PeoplePage),
     webapp2.Route(r'/publications/', handler=PublicationsPage),
-    webapp2.Route(r'/news/', handler=NewsPage),
+    webapp2.Route(r'/news/', handler=NewsPage, name='news'),
     webapp2.Route(r'/admin/', handler=AdminPage),
     webapp2.Route(r'/admin/news/new/', handler=NewsItemResource, name='NewsItem.new', handler_method='new', methods='GET'),
     webapp2.Route(r'/admin/news/create/', handler=NewsItemResource, name='NewsItem.create', handler_method='create', methods='POST'),

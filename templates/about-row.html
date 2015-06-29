@@ -40,14 +40,15 @@
 
   </div>
   <div class="col-md-6">
+    <h3>Lab News</h3>
+    {% for news_item in news_items %}
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      {% with %}
+        {% set url = uri_for('news') ~ '#' ~ news_item.key.id() %}
+        {{news_item.get_as_markdown(summary=True, title_link=url)|markdown|safe}}
+      {% endwith %}
     </p>
+    {% endfor %}
   </div>
 </div>
 
