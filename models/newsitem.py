@@ -30,22 +30,25 @@ class NewsItem(ndb.Model):
         return y
 
     def get_as_markdown(self, summary=False, title_link=None):
+        import logging
+        logging.info('HERE I AM DUDE 1!!')
 
         title = self.nbsp(self.title)
         if title_link:
-            retval = '[{0}]({1}).'.format(title, title_link)
+            retval = u'[{0}]({1}).'.format(title, title_link)
         else:
-            retval = '**{0}**.'.format(title)
+            retval = u'**{0}**.'.format(title)
 
         if summary:
             x = self.summary
         else:
             x = self.content
-        retval = "{0} {1}".format(retval, x)
+        retval = u"{0} {1}".format(retval, x)
         if not retval.endswith('.'):
-            retval = "{0}.".format(retval)
+            retval = u"{0}.".format(retval)
 
-        retval = "{0} _Posted&nbsp;{1}_".format(retval, self.date_published)
+        retval = u"{0} _Posted&nbsp;{1}_".format(retval, self.date_published)
+        logging.info(retval)
         return retval
 
     @classmethod
