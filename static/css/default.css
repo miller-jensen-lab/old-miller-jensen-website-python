@@ -49,6 +49,9 @@ li.last{
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#364F93', endColorstr='#003880')"; /* IE8 */
     
 }
+#header-row a:hover{
+  text-decoration: none;
+}
 header.admin{
   font-size: 2em;
   color: #fff;
