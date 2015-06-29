@@ -299,20 +299,24 @@ span.position{
 
 /* Papers */
 div.new-paper{
-  display: block;
-  position: absolute;
-  top: 90px;
-  left: 8px;
-  background-color: #EC3D3E;
-  border: 1px solid #E8191D;
-  color: #fff;
-  font-size: 0.7em;
-  font-weight: bold;
-  font-family: sans-serif;
-  text-shadow: #910004 0px -1px 1px;
-  padding: 0.1em 0.3em;
-  border-radius: 2px;
-
+  display: none;
+}
+@media (min-width: 992px) {
+  div.new-paper{
+    display: block;
+    position: absolute;
+    top: 77px;
+    left: 10px;
+    background-color: #EC3D3E;
+    border: 1px solid #E8191D;
+    color: #fff;
+    font-size: 0.7em;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-shadow: #910004 0px -1px 1px;
+    padding: 0.1em 0.3em 0.1em 0.6em;
+    border-radius: 0px 2px 2px 2px;
+  }
 }
 
 
