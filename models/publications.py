@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import datetime
+
 publications = [
     {
         'title': u'Systems biology of virus-host signaling network interactions',
@@ -83,7 +85,7 @@ publications = [
     },
     {
         'title' : 'High-throughput secretomic analysis of single cells to assess functional cellular heterogeneity',
-        'authors' : 'Lu Y1, Chen JJ, Mu L, Xue Q, Wu Y, Wu PH, Li J, Vortmeyer AO, Miller-Jensen K, Wirtz D, Fan R.',
+        'authors' : 'Lu Y., Chen JJ, Mu L, Xue Q., Wu Y., Wu P.H., Li J., Vortmeyer A.O., Miller-Jensen K., Wirtz D, Fan R.',
         'year' : 2014,
         'journal' : "Anal Chem",
         'vol' : 85,
@@ -92,6 +94,34 @@ publications = [
         'pmid' : 23339603,
         'fulltext_url' : 'http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3589817/',
     },
+    {
+        'title' : 'Highly multiplexed profiling of single-cell effector functions reveals deep functional heterogeneity in response to pathogenic ligands',
+        'authors' : 'Lu Y., Xue Q., Eisele M.R., Sulistijo E.S., Brower K., Han L, Amir el-A.D., Pe\'er D., Miller-Jensen K., Fan R.',
+        'year' : 2015,
+        'journal' : "Proc Natl Acad Sci",
+        'vol' : 112,
+        'issue' : 7,
+        'pages' : 'E607-15',
+        'pmid' : 25646488,
+        'fulltext_url' : 'http://www.pnas.org/cgi/pmidlookup?view=long&pmid=25646488',
+    },
+    {
+        'title' : 'Analysis of single-cell cytokine secretion reveals a role for paracrine signaling in coordinating macrophage responses to TLR4 stimulation',
+        'authors' : 'Xue Q., Lu Y., Eisele M.Rself., Sulistijo E.S., Khan N, Fan R, Miller-Jensen K.',
+        'year' : 2015,
+        'journal' : "Science Signaling",
+        'vol' : 8,
+        'issue' : 381,
+        'pmid' : 26082435,
+        'fulltext_url' : 'http://stke.sciencemag.org/content/8/381/ra59',
+    },
 ]
 
-
+publications.sort(key=lambda x: x['year'], reverse=True)
+today = datetime.date.today()
+for publication in publications:
+    if today.year - publication['year'] <= 1:
+        is_new = True
+    else:
+        is_new = False
+    publication['is_new'] = is_new

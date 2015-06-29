@@ -297,6 +297,25 @@ span.position{
     box-shadow: 5px 5px 10px #bbb;
 }
 
+/* Papers */
+div.new-paper{
+  display: block;
+  position: absolute;
+  top: 90px;
+  left: 8px;
+  background-color: #EC3D3E;
+  border: 1px solid #E8191D;
+  color: #fff;
+  font-size: 0.7em;
+  font-weight: bold;
+  font-family: sans-serif;
+  text-shadow: #910004 0px -1px 1px;
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+
+}
+
+
 /*
 ******************************
     Responsive changes
