@@ -86,7 +86,7 @@ publications = [
     {
         'title' : 'High-throughput secretomic analysis of single cells to assess functional cellular heterogeneity',
         'authors' : 'Lu Y., Chen JJ, Mu L, Xue Q., Wu Y., Wu P.H., Li J., Vortmeyer A.O., Miller-Jensen K., Wirtz D, Fan R.',
-        'year' : 2014,
+        'year' : 2013,
         'journal' : "Anal Chem",
         'vol' : 85,
         'issue' : 4,
