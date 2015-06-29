@@ -12,7 +12,10 @@ sys.path[0:0] = [
 # at the ERROR level as well.)
 appstats_DEBUG = False
 
-
+# Add any libraries installed in the "lib" folder.
+# See https://cloud.google.com/appengine/docs/python/tools/libraries27
+from google.appengine.ext import vendor
+vendor.add('lib')
 
 def webapp_add_wsgi_middleware(app):
     from google.appengine.ext.appstats import recording

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+  Edit news item
+{% endblock %}
+
+{% import 'forms.html' as forms %}
+
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-12">
+      <h3>
+        Edit news item
+      </h3>
+      {% if form %}
+      <form action="{{ uri_for(submit_routename, id=id) }}" method="POST">
+        {{ forms.form_fields(form) }}
+        {{ forms.action_buttons('Save') }}
+      </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

@@ -16,6 +16,15 @@
         We have a variety of news.
       </p>
 
+      <ul>
+      {% for news_item in news_items %}
+        <li>
+          {{news_item.title}}
+        </li>
+      {% endfor %}
+      </ul>
+
+
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

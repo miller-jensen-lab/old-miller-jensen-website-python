@@ -1,0 +1,57 @@
+{% extends "admin/admin.html" %}
+
+
+{% block title %}
+  News in the Miller-Jensen Laboratory at Yale
+{% endblock %}
+
+{%- macro link_button(text, uri) -%}
+  <a href="{{uri}}">
+    <button class="btn btn-primary">
+      {{text}}
+    </button>
+  </a>
+{% endmacro %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-12">
+      <h3>
+        News Admin
+      </h3>
+
+
+      <table class="table table-striped">
+        <thead>
+          <th>Action</th>
+          <th>Date Created</th>
+          <th>Date Published</th>
+          <th>Title</th>
+          <th>Content</th>
+        </thead>
+        {% for news_item in news_items %}
+          <tr>
+            <td>
+              {{link_button('Edit', uri_for('NewsItem.edit', id=news_item.key.id()))}}
+            </td>
+            <td>
+              {{news_item.datetime_added}}
+            </td>
+            <td>
+              {{news_item.date_published}}
+            </td>
+            <td>
+              {{news_item.title}}
+            </td>
+            <td>
+              {{news_item.content|truncate(50)}}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="col-md-12">
+      {{link_button('New', uri_for('NewsItem.new'))}}
+    </div>
+  </div>
+{% endblock %}

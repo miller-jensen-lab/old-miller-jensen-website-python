@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block header %}
+<header id="header-row" class="admin">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      	<p>ADMIN</p>
+      </div>
+  	</div>
+  </div>
+</header>
+{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <div class="col-md-12">
+      <h3>
+        Admin for Miller-Jensen.org
+      </h3>
+      <p>
+      	Still working on this. Right now you can
+      	admin the following items:
+      </p>
+      <ul>
+      	<li>
+      		<a href="{{uri_for('NewsItem.list')}}">News Items</a>
+      	</li>
+      </ul>
+	</div>
+  </div>
+{% endblock %}

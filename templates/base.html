@@ -19,8 +19,9 @@
     <![endif]-->
   </head>
   <body>
-
-    {% include "header-row.html" %}
+    {% block header %}
+      {% include "header-row.html" %}
+    {% endblock %}
     
     <div class="container">
       {% block body %}
