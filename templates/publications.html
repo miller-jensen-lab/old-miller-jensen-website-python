@@ -9,10 +9,10 @@
   {% if loop.index0 % 2 == 0 %}
   <div class="row {% if loop.first %}first-row{% endif %}">
   {% endif %}
-    <div class="col-md-6"> 
+    <div class="col-md-6">
       <div class="media">
         <a class="pull-left" href="{{paper.fulltext_url}}">
-          <img class="{{ loop.cycle('', 'box-rotate-07-neg', 'box-rotate-07') }} small-shadow hidden-xs" height="125" width="97" src="/static/img/{{paper.pmid}}.png">
+          <img class="{{ loop.cycle('', 'box-rotate-07-neg', 'box-rotate-07') }} small-shadow hidden-xs" height="125" width="97" src="/static/img/{% if paper.image %}{{paper.image}}{% else %}{{paper.pmid}}.png{% endif %}">
           {% if paper.is_new %}
             <div class="new-paper small-shadow">
               NEW
@@ -25,8 +25,12 @@
             {{paper.authors}} <b>{{paper.journal}}</b> {{paper.vol}}{%
             if paper.issue %}&nbsp;({{paper.issue}}){% endif %}{% if
             paper.pages %} {{paper.pages}}{% endif %}, {{paper.year}}.
-            {{paper.postscript}} View on <a
-            href="http://www.ncbi.nlm.nih.gov/pubmed/{{paper.pmid}}">Pubmed</a> or the
+            {{paper.postscript}} View on
+            {% if paper.pmid %}
+            <a
+            href="http://www.ncbi.nlm.nih.gov/pubmed/{{paper.pmid}}">Pubmed</a> or
+            {% endif %}
+            the
             <a href="{{paper.fulltext_url}}">{{paper.journal}} website</a>.
           </p>
         </div>
