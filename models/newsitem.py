@@ -33,7 +33,8 @@ class NewsItem(ndb.Model):
         import logging
         logging.info('HERE I AM DUDE 1!!')
 
-        title = self.nbsp(self.title)
+        # title = self.nbsp(self.title)
+        title = self.title
         if title_link:
             retval = u'[{0}]({1}).'.format(title, title_link)
         else:
