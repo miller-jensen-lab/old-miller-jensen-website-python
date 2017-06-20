@@ -1,0 +1,7 @@
+{% for group in people|sort(attribute='last_name')|batch(2) %}
+  <div class="row people-row {% if loop.first %}first-row{% endif %}">
+    {% for person in group %}
+      {% include "person.html" %}
+    {% endfor %}
+  </div>
+{% endfor %}

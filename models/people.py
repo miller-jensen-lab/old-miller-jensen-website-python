@@ -2,24 +2,28 @@
 people = [
     {
         'name': u'Arvind Chavali',
+        'alum': True,
         'photo': u'Arvind_photo-small.jpg',
         'position': u'Postdoctoral Associate',
         'description': u'Arvind is investigating the role of cell-to-cell heterogeneity in the activation of latent HIV proviruses. His interests lie in computational modeling and systems analysis. Arvind received his PhD in biomedical engineering from the University of Virginia.',
     },
     {
         'name': u'Ramesh Ramji',
+        'alum': True,
         'photo': u'Ramesh_photo-small.jpg',
         'position': u'Postdoctoral Associate',
         'description': u'Ramesh likes to invent novel integrated micro analytical devices for biological applications. With a PhD in bioengineering (microfluidic cell based assays) from the National University of Singapore (NUS), he dwells into areas including nanobiotechnology, bioimaging, analytical chemistry and instrumentation. He is currently developing a high throughput multiplexed microfluidic device to quantify signaling dynamics and endpoint protein secretion at the "single cell" level.',
     },
     {
         'name': u'Qiong Xue',
+        'alum': True,
         'photo': u'Qiong_photo-small.jpg',
         'position': u'Postdoctoral Associate',
         'description': u'Qiong joined the Miller-Jensen lab from Texas A&M with a background in inflammation and infectious diseases. She is investigating cytokine/chemokine secretion signatures of both a cell population and single cells and excited to apply systems analysis to single cell inflammatory responses.',
     },
     {
         'name': u'Endah Sulistijo',
+        'alum': True,
         'photo': u'Endah_photo-small.jpg',
         'position': u'Postdoctoral Associate (joint with Prof. Rong Fan)',
         'description': u'Endah got her Ph.D. in Biochemistry from Rice University.  She is currently involved to two research projects: (1) Characterization of protein phosphorylation signatures in latent HIV-infected cells and non-infected cells, and (2) Optimization of microfluidic techniques for detection of cell signaling proteins at single-cell level.',
@@ -38,6 +42,7 @@ people = [
     },
     {
         'name': u'Victor Wong',
+        'alum': True,
         'photo': u'Victor_photo-small.jpg',
         'position': u'Graduate Student (Molecular, Cellular, and Developmental Biology)',
         'description': u'Victor is studying how cell-to-cell heterogeneity in NF-kB dynamics and chromatin environment combine to regulate transcriptional activation of latent HIV. He is using a combination of live-cell imaging and single molecular fluorescence in situ hybridization (smFISH) to observe latent HIV activation in single cells. His interests include molecular biology, microscopy, biological noise and signal transduction. Victor received his Bachelor’s degree in Biology from the University of Pennsylvania.',

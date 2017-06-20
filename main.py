@@ -55,9 +55,12 @@ class IndexPage(BaseHandler):
 
 class PeoplePage(BaseHandler):
     def get(self):
+        def is_alum(p):
+            return 'alum' in p and p['alum']
         self.render_response(
             "people.html",
-            people=people,
+            current_members=[p for p in people if not is_alum(p)],
+            alumni=[p for p in people if is_alum(p)],
             tab='people'
         )
 
