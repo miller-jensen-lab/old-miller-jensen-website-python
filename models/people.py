@@ -49,9 +49,38 @@ people = [
     },
     {
         'name': u'Markus Eisele',
+        'alum': True,
         'photo': u'Markus_photo-small.jpg',
         'position': u'Visiting Master’s Student ',
         'description': u'Markus is studying the different behavior of single cells under LPS stress compared to cells in a population. He is using computational modeling and systems analysis to explore TLR4 signaling. Markus is a Master’s student in Stuttgart, Germany and is visiting Yale University for one year.',
+    },
+    {
+        'name': u'Victor Bass',
+        'alum': False,
+        'photo': u'Victorb_photo-small.jpg',
+        'position': u'Graduate Student (Biomedical Engineering)',
+        'description': u'Victor studies how single cell heterogeneity in NF-kB dynamics affects transcription of inflammatory genes in different chromatin environments. He uses a combination of live-cell imaging and single molecule fluorescence in situ hybridization to measure NF-κB dynamics and quantify transcript output in the same single cells. His research interests include single-cell heterogeneity, signal transduction, and fluorescence microscopy. He received his Bachelor\'s in Biological Sciences from Carnegie Mellon University with a minor in Chemistry.'
+    },
+    {
+        'name': u'Amanda Alexander',
+        'alum': False,
+        'photo': u'Amanda_photo-small.jpg',
+        'position': u'Graduate Student (Biomedical Engineering)',
+        'description': u'Amanda is investigating spatial and temporal regulation of cell-to-cell heterogeneity in the inflammatory response in macrophages. She is interested in how dysregulation of intercellular heterogeneity in inflammation may contribute to autoimmune diseases. Amanda is supported by an NSF Graduate Research Fellowship. She received her Bachelor’s degree in Mathematics from Spelman College with additional coursework in Biomedical Engineering at the Georgia Institute of Technology.'
+    },
+    {
+        'name': u'Elise Bullock',
+        'alum': False,
+        'photo': u'Elise_photo-small.jpg',
+        'position': u'Graduate Student (Biomedical Engineering)',
+        'description': u'Elise studies signaling and transcriptional regulation of HIV latency using computational and experimental approaches. Her goal is to understand how signaling and transcriptional heterogeneity control viral phenotypes when coupled to feedback control. Her interests include systems biology, computational modeling, and synthetic biological circuits. Elise is a member of the Integrated Graduate Program in Physical and Engineering Biology and is supported by the program’s NIH T32 training grant. She received her Bachelor’s degree in Biomedical Engineering from the University of Texas at Dallas.'
+    },
+    {
+        'name': u'Laura Kellman',
+        'alum': False,
+        'photo': u'Laura_photo-small.jpg',
+        'position': u'Post-baccalaureate Researcher',
+        'description': u'Laura is studying the role of p38 kinase signaling in the regulation of IL-6 following TLR stimulation. She uses both single-cell and cell-population approaches to understand how intercellular signaling heterogeneity translates to variability in cytokine secretion. Laura received her Bachelor’s degree in Molecular, Cellular, and Developmental Biology from Yale University.'
     },
 ]
 for person in people:
