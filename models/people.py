@@ -30,6 +30,7 @@ people = [
     },
     {
         'name': u'Linda Fong',
+        'alum': True,
         'photo': u'Linda_photo-small.jpg',
         'position': u'Graduate Student (Biomedical Engineering)',
         'description': u'Linda\'s research focuses on the temporal dynamics of phosphoproteins in the reactivation of latent HIV. Through systems analysis and multivariate regression modeling, her work aims to elucidate key signaling pathways which can predict network responses to pharmacologic intervention. Her research interests involve using data-driven models of cell signaling to approach problems in oncology and infectious diseases. Linda earned her BS from MIT in Biological Engineering (Course XX) with a minor in Science, Technology, and Society and a concentration in Ethics.',
@@ -82,6 +83,14 @@ people = [
         'position': u'Post-baccalaureate Researcher',
         'description': u'Laura is studying the role of p38 kinase signaling in the regulation of IL-6 following TLR stimulation. She uses both single-cell and cell-population approaches to understand how intercellular signaling heterogeneity translates to variability in cytokine secretion. Laura received her Bachelor’s degree in Molecular, Cellular, and Developmental Biology from Yale University.'
     },
+    {
+        'name': u'Ilana Kelsey',
+        'alum': False,
+        'photo': u'Ilana_photo-small.jpg',
+        'position': u'Post-doc Associate',
+        'description': u'Ilana is interested in the polarization process of macrophages, specifically how individual cells activate and regulate their polarization responses when they encounter complex or conflicting cues from the environment. Using live-cell microscopy and flow cytometry, she is investigating the signaling events, gene transcription, and protein production of various polarization pathways to elucidate the plasticity and mechanism of polarization decisions in complex environments, such as might be encountered in the tumor microenvironment. Ilana received her Ph.D. from Harvard University, where she studied the regulation of the proto-oncogene PIM3 by mTORC1 in Brendan Manning’s lab.  She received Bachelor’s degrees in Biochemistry and Biology at the University of Maryland.',
+    },
+
 ]
 for person in people:
     person['last_name'] = person['name'].split()[-1]
