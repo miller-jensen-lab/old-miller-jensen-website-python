@@ -5,6 +5,19 @@
 {% endblock %}
 
 {% block body %}
+
+<div class="row top-text">
+  <div class="col-md-12">
+    <p>
+      <em>Note</em>, sometimes our very newest publications won't appear here. You can search
+      <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=(Miller-Jensen%5BAuthor%5D)">"Miller-Jensen" in Pubmed</a>
+      to find them.
+      Also, if you would like to read one of our publications and your library does not have access,
+      please write to us for a reprint.
+    </p>
+  </div>
+</div>
+
 {% for paper in publications %}
   {% if loop.index0 % 2 == 0 %}
   <div class="row {% if loop.first %}first-row{% endif %}">
@@ -28,8 +41,9 @@
         </a>
         <div class="media-body">
           <p>
-            <a href="{{publisher_url}}">{{paper.title}}</a>.
-            {{paper.authors}} <b>{{paper.journal}}</b> {{paper.vol}}{%
+          <a href="{{publisher_url}}">{{paper.title}}{% if paper.title.endswith('.') %}{% else %}.{% endif %}</a>
+            {{paper.authors}}{% if paper.authors.endswith('.') %}{% else %}.{% endif %}
+            <b>{{paper.journal}}{% if paper.journal.endswith('.') %}{% else %}.{% endif %}</b> {{paper.vol}}{%
             if paper.issue %}&nbsp;({{paper.issue}}){% endif %}{% if
             paper.pages %} {{paper.pages}}{% endif %}, {{paper.year}}.
             {{paper.postscript}} View on

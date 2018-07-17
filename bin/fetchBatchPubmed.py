@@ -2,17 +2,19 @@
 """ Fetches pubmed records
 """
 import sys
-import urllib
+from urllib.parse import urlencode
+from urllib.request import urlopen
 import re
+import json
 
 
 def usage():
-    print "%s: Takes a list of Pubmed IDs and returns in requested format" \
-        % (sys.argv[0])
-    print "Usage: %s RETURN_TYPE FORMAT \"SEARCH\"" % (sys.argv[0])
-    print "RETURN_TYPE = [uilist, abstract, citation, medline]"
-    print "FORMAT = [xml, text, html, asn.1]"
-    print "SEARCH = pubmed search terms"
+    print("{0}: Takes a list of Pubmed IDs and returns in requested format".format(
+        sys.argv[0]))
+    print("Usage: %s RETURN_TYPE FORMAT \"SEARCH\"".format(sys.argv[0]))
+    print("RETURN_TYPE = [uilist, abstract, citation, text]")
+    print("FORMAT = [xml, text, html, asn.1]")
+    print("SEARCH = pubmed search terms")
 
 
 def searchPubmed(query):
@@ -25,14 +27,14 @@ def searchPubmed(query):
         "db": "pubmed",
         "term": query,
         "usehistory": "y"
-        }
-    urlParams = urllib.urlencode(searchParams)
-    f = urllib.urlopen("%s%s" % (esearchUrl, urlParams))
+    }
+    urlParams = urlencode(searchParams)
+    f = urlopen("%s%s" % (esearchUrl, urlParams)).read().decode('utf-8')
 
     Count = ""
     QueryKey = ""
     WebEnv = ""
-    for line in f:
+    for line in f.splitlines():
 
         match = CountRegex.search(line)
         if match is not None:
@@ -47,8 +49,6 @@ def searchPubmed(query):
         if Count is not "" and QueryKey is not "" and WebEnv is not "":
             break
 
-    f.close()
-
     Count = int(Count)
     QueryKey = int(QueryKey)
     return (Count, QueryKey, WebEnv)
@@ -56,33 +56,65 @@ def searchPubmed(query):
 
 def retrieveWithWebEnv(Count, QueryKey, WebEnv, retmode, rettype):
     retmax = 500
-    esearchUrl = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"
+    esearchUrl = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?"
     searchParams = {
-        "db": "pubmed",
+        "db": "pmc",
         "WebEnv": WebEnv,
         "query_key": QueryKey,
         "retmax": retmax,
         "retmode": retmode,
         "rettype": rettype,
         "retstart": 0
-        }
+    }
 
     for retstart in range(0, Count, retmax):
         searchParams["retstart"] = retstart
-        urlParams = urllib.urlencode(searchParams)
-        f = urllib.urlopen("%s%s" % (esearchUrl, urlParams))
-        print f.read()
-        f.close()
+        urlParams = urlencode(searchParams)
+        f = urlopen("%s%s" % (esearchUrl, urlParams))
+        esummary = json.loads(f.read().decode('utf-8'))
+        print(tranform(esummary))
+
+
+def get_doi(articleids):
+    dois = [x['value'] for x in articleids if x['idtype'] == 'doi']
+    if len(dois) > 0:
+        return dois[0]
+    return None
+
+
+def tranform(esummary):
+    """ Transforms esummary object into the format we want
+        for the Miller-Jensen website
+    """
+    uids = [uid for uid in esummary['result'].keys() if uid != 'uids']
+    output = []
+    for uid in sorted(uids):
+        record = esummary['result'][uid]
+        authors = ", ".join(au['name'] for au in record['authors'])
+        o = {
+            'authors': authors,
+            'title': record['title'],
+            'pmid': uid,
+            'volume': record['volume'],
+            'issue': record['issue'],
+            'year': int(record['pubdate'].split()[0]),
+            'pages': record['pages'],
+            'journal': record['source'],
+            'doi': get_doi(record['articleids'])
+        }
+        output.append(o)
+
+    return output
 
 
 def main():
-    if len(sys.argv) is not 4:
+    if len(sys.argv) is not 2:
         usage()
         sys.exit()
 
-    rettype = sys.argv[1]
-    retmode = sys.argv[2]
-    query = sys.argv[3]
+    rettype = 'abstract'
+    retmode = 'json'
+    query = sys.argv[1]
 
     (Count, QueryKey, WebEnv) = searchPubmed(query)
     retrieveWithWebEnv(Count, QueryKey, WebEnv, retmode, rettype)
