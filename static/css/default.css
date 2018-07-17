@@ -87,11 +87,15 @@ img {
 
 .nav-tabs>li>a {
     text-shadow: none;
+    padding: 5px 8px;
 }
 
-@media (min-width: 500px) {
+@media (min-width: 400px) {
     .nav li {
         font-size: 18px;
+    }
+    .nav-tabs>li>a {
+        padding: 10px 15px;
     }
 }
 
@@ -160,15 +164,25 @@ header h1 span.dash {
 }
 
 #westudy {
-    font-size: 36px;
+    font-size: 24px;
 }
 
 #weuse {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 300;
-    margin-top: 36px;
-    padding-bottom: 32px;
+    margin-top: 24px;
+    padding-bottom: 24px;
     background: transparent url(/static/img/path6045.png) no-repeat 50% 100%;
+}
+
+@media (min-width: 400px) {
+    #westudy {
+        font-size: 30px;
+    }
+    #weuse {
+        margin-top: 36px;
+        padding-bottom: 32px;
+    }
 }
 
 #weuse em {
