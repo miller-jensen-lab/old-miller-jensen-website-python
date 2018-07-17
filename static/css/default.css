@@ -190,7 +190,7 @@ header h1 span.dash {
     float: left;
     margin-top: -0.205em;
     margin-left: -0.56em;
-    margin-right: 0.5em;
+    margin-right: 0.60em;
     height: 2.5em;
 }
 
@@ -205,6 +205,7 @@ header h1 span.dash {
 
 .remainderletters {
     font-weight: bold;
+    color: black;
 }
 
 #research-summary {
