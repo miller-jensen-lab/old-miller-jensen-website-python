@@ -1,67 +1,57 @@
-{% extends "base.html" %}
-
-{% block title %}
-  Publications of the Miller-Jensen Laboratory at Yale
-{% endblock %}
-
-{% block body %}
+{% extends "base.html" %} {% block title %} Publications of the Miller-Jensen Laboratory at Yale {% endblock %} {% block
+body %}
 
 <div class="row top-text">
   <div class="col-md-12">
     <p>
       <em>Note</em>, sometimes our very newest publications won't appear here. You can search
       <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=(Miller-Jensen%5BAuthor%5D)">"Miller-Jensen" in Pubmed</a>
-      to find them.
-      Also, if you would like to read one of our publications and your library does not have access,
-      please write to us for a reprint.
+      to find them. Also, if you would like to read one of our publications and your library does not have access, please write
+      to us for a reprint.
     </p>
   </div>
 </div>
 
-{% for paper in publications %}
-  {% if loop.index0 % 2 == 0 %}
-  <div class="row {% if loop.first %}first-row{% endif %}">
+{% for paper in publications %} {% if loop.index0 % 2 == 0 %}
+<div class="row {% if loop.first %}first-row{% endif %}">
   {% endif %}
-    <div class="col-md-6">
-      <div class="media">
-        {% if paper.fulltext_url %}
-          {% set publisher_url = paper.fulltext_url %}
-        {% elif paper.doi %}
-          {% set publisher_url = "https://doi.org/" + paper.doi %}
-        {% else %}
-          {% set publisher_url = "foooo" %}
-        {% endif %}
-        <a class="pull-left" href="{{publisher_url}}">
-          <img class="{{ loop.cycle('', 'box-rotate-07-neg', 'box-rotate-07') }} small-shadow hidden-xs" height="125" width="97" src="/static/img/{% if paper.image %}{{paper.image}}{% else %}{{paper.pmid}}.png{% endif %}">
+  <div class="col-md-6">
+    <div class="media">
+      {% if paper.fulltext_url %} {% set publisher_url = paper.fulltext_url %} {% elif paper.doi %} {% set publisher_url = "https://doi.org/"
+      + paper.doi %} {% else %} {% set publisher_url = "foooo" %} {% endif %}
+      <a class="pull-left" href="{{publisher_url}}">
+        <img class="{{ loop.cycle('', 'box-rotate-07-neg', 'box-rotate-07') }} small-shadow hidden-xs" height="125" width="97" src="/static/img/{% if paper.image %}{{paper.image}}{% else %}{% if paper.is_preprint %}generic-paper.png{% else %}{{paper.pmid}}.png{% endif %}{% endif %}">
+        {% if paper.is_preprint %}
+          <div class="preprint-paper small-shadow">
+            PREPRINT
+          </div>
+        {% else  %}
           {% if paper.is_new %}
             <div class="new-paper small-shadow">
               NEW
             </div>
           {% endif %}
-        </a>
-        <div class="media-body">
-          <p>
+        {% endif %}
+      </a>
+      <div class="media-body">
+        <p>
           <a href="{{publisher_url}}">{{paper.title}}{% if paper.title.endswith('.') %}{% else %}.{% endif %}</a>
-            {{paper.authors}}{% if paper.authors.endswith('.') %}{% else %}.{% endif %}
-            <b>{{paper.journal}}{% if paper.journal.endswith('.') %}{% else %}.{% endif %}</b> {{paper.vol}}{%
-            if paper.issue %}&nbsp;({{paper.issue}}){% endif %}{% if
-            paper.pages %} {{paper.pages}}{% endif %}, {{paper.year}}.
-            {{paper.postscript}} View on
-            {% if paper.pmid %}
-            <a
-            href="http://www.ncbi.nlm.nih.gov/pubmed/{{paper.pmid}}">Pubmed</a>
-            {% endif %}
-            {% if publisher_url %}
-              or the
-              <a href="{{publisher_url}}">{{paper.journal}} website</a>.
-            {% endif %}
-          </p>
-        </div>
+          {{paper.authors}}{% if paper.authors.endswith('.') %}{% else %}.{% endif %}
+          {% if paper.is_preprint %}
+            View preprint at <a href="{{publisher_url}}">{{paper.journal}}</a>.
+          {% else %}
+            <b>{{paper.journal}}{% if paper.journal.endswith('.') %}{% else %}.{% endif %}</b>
+            {{paper.vol}}{% if paper.issue %}&nbsp;({{paper.issue}}){% endif %}
+            {% if paper.pages %} {{paper.pages}}{% endif %}, {{paper.year}}. {{paper.postscript}}
+            View on {% if paper.pmid %}
+            <a href="http://www.ncbi.nlm.nih.gov/pubmed/{{paper.pmid}}">Pubmed</a> or
+            {% endif %} {% if publisher_url %} at
+            <a href="{{publisher_url}}">{{paper.journal}}</a>. {% endif %}
+          {% endif %}
+        </p>
       </div>
     </div>
-  {% if (loop.index0 + 1) % 2 == 0 or loop.last %}
   </div>
-  {% endif %}
-{% endfor %}
-
-{% endblock %}
+  {% if (loop.index0 + 1) % 2 == 0 or loop.last %}
+</div>
+{% endif %} {% endfor %} {% endblock %}

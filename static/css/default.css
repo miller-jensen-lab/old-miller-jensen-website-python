@@ -372,12 +372,14 @@ span.position {
 
 /* Papers */
 
-div.new-paper {
+div.new-paper,
+div.preprint-paper {
     display: none;
 }
 
 @media (min-width: 992px) {
-    div.new-paper {
+    div.new-paper,
+    div.preprint-paper {
         display: block;
         position: absolute;
         top: 77px;
@@ -391,6 +393,11 @@ div.new-paper {
         text-shadow: #910004 0px -1px 1px;
         padding: 0.1em 0.3em 0.1em 0.6em;
         border-radius: 0px 2px 2px 2px;
+    }
+    div.preprint-paper {
+        background-color: #A6DC39;
+        border: 1px solid #89C315;
+        text-shadow: #578401 0px -1px 1px;
     }
 }
 

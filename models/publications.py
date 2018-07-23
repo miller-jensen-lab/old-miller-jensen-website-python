@@ -201,6 +201,20 @@ publications = [
         'pmid': u'29346759', 'volume': u'22', 'issue': u'3', 'year': 2018, 'pages': u'585-599', 'journal': u'Cell Rep', 'doi': u'10.1016/j.celrep.2017.12.080'},
     {'authors': u'Fong LE, Sulistijo ES, Miller-Jensen K', 'title': u'Systems analysis of latent HIV reversal reveals altered stress kinase signaling and increased cell death in infected T cells.',
         'pmid': u'29170390', 'volume': u'7', 'issue': u'1', 'year': 2017, 'pages': u'16179', 'journal': u'Sci Rep', 'doi': u'10.1038/s41598-017-15532-0'},
+    {'authors': u'Victor C. Wong, Ramesh Ramji, Suzanne Gaudet, Kathryn Miller-Jensen',
+     'title': u'Fold-change detection of NF-κB at target genes with different transcript outputs.',
+     'is_preprint': True,
+     'year': 2018,
+     'journal': u'BioRχiv',
+     'doi': u'10.1101/339697'
+     },
+    {'authors': u'Linda E. Fong, Victor L. Bass, Serena Spudich, Kathryn Miller-Jensen',
+     'title': u'Systems analysis by mass cytometry identifies susceptibility of latent HIV-infected T cells to targeting of p38 and mTOR pathways.',
+     'is_preprint': True,
+     'year': 2018,
+     'journal': u'BioRχiv',
+     'doi': u'10.1101/371922'
+     },
 ]
 
 publications.sort(key=lambda x: x['year'], reverse=True)
