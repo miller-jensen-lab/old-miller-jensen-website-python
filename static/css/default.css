@@ -44,7 +44,7 @@ li.last {
 */
 
 #header-row {
-    padding: 35px 0 0px 0;
+    padding: 20px 0 0px 0;
     border-top: 3px solid #eee;
     background-color: #fff;
     background: -webkit-gradient(linear, 0 0, 0 bottom, from(#364F93), to(#003880));
@@ -57,6 +57,12 @@ li.last {
     /* IE6 & IE7 */
     -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#364F93', endColorstr='#003880')";
     /* IE8 */
+}
+
+@media (min-width: 400px) {
+    #header-row {
+        padding: 35px 0 0px 0;
+    }
 }
 
 #header-row a:hover {
