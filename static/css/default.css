@@ -91,6 +91,10 @@ img {
     font-family: 'PT Sans Narrow', sans-serif;
 }
 
+.nav-tabs {
+    border-bottom: 0px;
+}
+
 .nav-tabs>li>a {
     text-shadow: none;
     padding: 5px 8px;
