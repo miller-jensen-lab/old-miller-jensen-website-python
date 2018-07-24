@@ -198,6 +198,15 @@ header h1 span.dash {
     }
 }
 
+@media (min-width: 1200Px) {
+    #westudy {
+        font-size: 32px;
+    }
+    #weuse {
+        font-size: 24px;
+    }
+}
+
 #weuse em {
     color: #003880;
     padding: 0 0.2em 0.1em 0.2em;
