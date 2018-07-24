@@ -159,7 +159,10 @@ header h1 span.dash {
 }
 
 #banner img {
-    width: 420px;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    max-width: 640px;
     margin-bottom: 18px;
     background-color: #fff;
     -webkit-border-radius: 2px;
