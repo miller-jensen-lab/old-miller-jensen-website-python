@@ -10,6 +10,8 @@ from models.newsitem import NewsItem, NewsItemForm
 from google.appengine.api import users
 import logging
 import markdown2
+import random
+
 
 class BaseHandler(webapp2.RequestHandler):
 
@@ -17,6 +19,7 @@ class BaseHandler(webapp2.RequestHandler):
     def jinja2(self):
         # Returns a Jinja2 renderer cached in the app registry.
         j2 = jinja2.get_jinja2(app=self.app)
+
         def md(*args, **kwargs):
             if args[0]:
                 return markdown2.markdown(*args, **kwargs)
@@ -30,8 +33,8 @@ class BaseHandler(webapp2.RequestHandler):
         context = context or {}
 
         extra_context = {
-          'request': self.request,
-          'uri_for': self.uri_for,
+            'request': self.request,
+            'uri_for': self.uri_for,
         }
 
         # Only override extra context stuff if it's not set by the template:
@@ -46,10 +49,33 @@ class BaseHandler(webapp2.RequestHandler):
 
 class IndexPage(BaseHandler):
     def get(self):
+        pictures = [
+            {
+                "src": "macrophage.jpg",
+                "alt": "A macrophage from NIAID",
+                "credit": "Photo from https://www.flickr.com/photos/niaid/",
+            },
+            {
+                "src": "macrophage2.jpg",
+                "alt": "A macrophage from NIAID",
+                "credit": "Photo from https://www.flickr.com/photos/niaid/",
+            },
+            {
+                "src": "macrophage3.png",
+                "alt": "A macrophage from NIAID",
+                "credit": "Photo from https://www.flickr.com/photos/niaid/",
+            },
+            {
+                "src": "MedRF_29361.jpg",
+                "alt": "Virus image copright MedicalRF.com",
+                "credit": "Photo from https://www.MedicalRF.com",
+            },
+        ]
         self.render_response(
             "index.html",
             tab='index',
-            news_items=NewsItem.get_latest(limit=5)
+            news_items=NewsItem.get_latest(limit=5),
+            picture=random.choice(pictures)
         )
 
 
@@ -73,6 +99,7 @@ class PublicationsPage(BaseHandler):
             tab='publications'
         )
 
+
 class NewsPage(BaseHandler):
     def get(self):
         self.render_response(
@@ -80,6 +107,7 @@ class NewsPage(BaseHandler):
             tab="news",
             news_items=NewsItem.get_latest()
         )
+
 
 class AdminPage(BaseHandler):
     def get(self):
@@ -188,7 +216,7 @@ class NewsItemResource(BaseHandler):
         context = {
             'action': 'Show',
             'id': id
-         }
+        }
 
         self.render_response(self.DETAIL_TEMPLATE, **context)
 
@@ -208,7 +236,7 @@ class NewsItemResource(BaseHandler):
             'id': id,
             'form': form,
             'submit_routename': 'NewsItem.update'
-         }
+        }
 
         self.render_response(self.DETAIL_TEMPLATE, **context)
 
@@ -261,17 +289,22 @@ class NewsItemResource(BaseHandler):
         self.render_response(self.DETAIL_TEMPLATE, **context)
 
 
-
 application = webapp2.WSGIApplication([
     webapp2.Route(r'/', handler=IndexPage),
     webapp2.Route(r'/people/', handler=PeoplePage),
     webapp2.Route(r'/publications/', handler=PublicationsPage),
     webapp2.Route(r'/news/', handler=NewsPage, name='news'),
     webapp2.Route(r'/admin/', handler=AdminPage),
-    webapp2.Route(r'/admin/news/new/', handler=NewsItemResource, name='NewsItem.new', handler_method='new', methods='GET'),
-    webapp2.Route(r'/admin/news/create/', handler=NewsItemResource, name='NewsItem.create', handler_method='create', methods='POST'),
-    webapp2.Route(r'/admin/news/', handler=NewsItemResource, name='NewsItem.list', methods='GET'),
-    webapp2.Route(r'/admin/news/<id:\d+>/', handler=NewsItemResource, name='NewsItem.edit', handler_method='edit', methods='GET'),
-    webapp2.Route(r'/admin/news/<id:\d+>/update', handler=NewsItemResource, name='NewsItem.update', handler_method='update', methods='POST'),
-    webapp2.Route(r'/admin/news/<id:\d+>/delete', handler=NewsItemResource, name='NewsItem.delete', handler_method='delete', methods='POST'),
+    webapp2.Route(r'/admin/news/new/', handler=NewsItemResource,
+                  name='NewsItem.new', handler_method='new', methods='GET'),
+    webapp2.Route(r'/admin/news/create/', handler=NewsItemResource,
+                  name='NewsItem.create', handler_method='create', methods='POST'),
+    webapp2.Route(r'/admin/news/', handler=NewsItemResource,
+                  name='NewsItem.list', methods='GET'),
+    webapp2.Route(r'/admin/news/<id:\d+>/', handler=NewsItemResource,
+                  name='NewsItem.edit', handler_method='edit', methods='GET'),
+    webapp2.Route(r'/admin/news/<id:\d+>/update', handler=NewsItemResource,
+                  name='NewsItem.update', handler_method='update', methods='POST'),
+    webapp2.Route(r'/admin/news/<id:\d+>/delete', handler=NewsItemResource,
+                  name='NewsItem.delete', handler_method='delete', methods='POST'),
 ], debug=True)
