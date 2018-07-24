@@ -59,7 +59,7 @@ people = [
         'name': u'Victor Bass',
         'alum': False,
         'photo': u'Victorb_photo-small.jpg',
-        'position': u'Graduate Student (Biomedical Engineering)',
+        'position': u'Graduate Student (Molecular, Cellular, and Developmental Biology)',
         'description': u'Victor studies how single cell heterogeneity in NF-kB dynamics affects transcription of inflammatory genes in different chromatin environments. He uses a combination of live-cell imaging and single molecule fluorescence in situ hybridization to measure NF-κB dynamics and quantify transcript output in the same single cells. His research interests include single-cell heterogeneity, signal transduction, and fluorescence microscopy. He received his Bachelor\'s in Biological Sciences from Carnegie Mellon University with a minor in Chemistry.'
     },
     {
